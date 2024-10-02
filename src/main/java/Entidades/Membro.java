@@ -1,4 +1,6 @@
 package Entidades;
 
-public class Membro {
+public class Membro extends Pessoa{
+//    @Override
+//    String nome;
 }
