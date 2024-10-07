@@ -22,7 +22,7 @@ public class CadastroDeAutores {
         System.out.println("Digite o nome do autor: ");
         String nome = entrada.nextLine();
 
-        TypedQuery<Autor> query = GerenciadorDeEntidades.createQuery("SELECT a FROM Autor a WHERE a.nome = :nome", Autor.class);
+        TypedQuery<Autor> query = GerenciadorDeEntidades.createQuery("SELECT autor FROM Autor autor WHERE autor.nome = :nome", Autor.class);
         query.setParameter("nome", nome);
         List<Autor> autoresExistentes = query.getResultList();
 

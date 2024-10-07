@@ -1,6 +1,7 @@
 package Funcionalidades;
 
 import Entidades.Membro;
+import Enumerados.EstadoEmprestimo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -36,6 +37,7 @@ public class CadastroDeMembros {
 
         SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
         Date dataAssociacao = formatoData.parse(dataAssociacaoString);
+
 
         membro.setNome(nome);
         membro.setEmail(email);

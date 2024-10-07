@@ -4,6 +4,7 @@ import Entidades.Livro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,25 +27,30 @@ public class CadastroDeLivros {
         System.out.println("Digite o autor do livro: ");
         String autor = entrada.nextLine();
 
-
         System.out.println("Digite o genero do livro: ");
         String genero = entrada.nextLine();
+
+        System.out.println("Digite o ISBN do livro(Apenas Números): ");
+        int isbn = entrada.nextInt();
 
         System.out.println("Digite a quantidade de livros que deseja cadastrar: ");
         int quantidade = entrada.nextInt();
 
+        entrada.nextLine();
+
         System.out.println("Digite a data de publicação");
-        String dataPublicacao = entrada.nextLine();
+        String dataPublicacaoString = entrada.nextLine();
 
         SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-        Date data01 = formatoData.parse(dataPublicacao);
+        Date dataPublicacao = formatoData.parse(dataPublicacaoString);
 
 
         livro.setTitulo(titulo);
         livro.setAutor(autor);
         livro.setGenero(genero);
+        livro.setIsbn(isbn);
         livro.setQuantidade(quantidade);
-        livro.setDataPublicacao(data01);
+        livro.setDataPublicacao(dataPublicacao);
 
         System.out.println();
 
@@ -55,5 +61,4 @@ public class CadastroDeLivros {
         System.out.println("O livro foi cadastrado com sucesso!");
 
     }
-
 }

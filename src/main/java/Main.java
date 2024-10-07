@@ -13,11 +13,7 @@ public class Main {
         ExibirMenu exibir = new ExibirMenu();
         exibir.exibirMenu();
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Teste");
-
         int opcao;
-        System.out.println("Digite a opção");
-
 
         opcao = entrada.nextInt();
         switch (opcao) {
