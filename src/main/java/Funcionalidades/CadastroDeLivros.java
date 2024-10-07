@@ -1,10 +1,7 @@
 package Funcionalidades;
 
 import Entidades.Livro;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
+import jakarta.persistence.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,6 +29,8 @@ public class CadastroDeLivros {
 
         System.out.println("Digite o ISBN do livro(Apenas Números): ");
         int isbn = entrada.nextInt();
+
+        TypedQuery<Livro> livro = GerenciadorDeEntidade.createQuery()
 
         System.out.println("Digite a quantidade de livros que deseja cadastrar: ");
         int quantidade = entrada.nextInt();

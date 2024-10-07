@@ -1,10 +1,5 @@
 import Entidades.*;
-import Funcionalidades.CadastroDeAutores;
-import Funcionalidades.CadastroDeLivros;
-import Funcionalidades.ExibirMenu;
-import Funcionalidades.CadastroDeMembros;
-import Funcionalidades.EmprestimoDeLivros;
-import Funcionalidades.MostrarLivrosDisponiveis;
+import Funcionalidades.*;
 
 import java.text.ParseException;
 import java.util.Scanner;
@@ -35,9 +30,9 @@ public class Main {
                 EmprestimoDeLivros emprestimoDeLivros = new EmprestimoDeLivros();
                 emprestimoDeLivros.realizarEmprestimo(new Emprestimo());
                 break;
+            case 5:
+                DevolucaoDeLivros devolucaoDeLivros = new DevolucaoDeLivros();
+                devolucaoDeLivros.devolverLivro();
         }
-
     }
-
-
 }
