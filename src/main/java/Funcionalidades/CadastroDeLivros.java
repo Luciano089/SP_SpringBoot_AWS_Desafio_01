@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -15,8 +16,7 @@ public class CadastroDeLivros {
 
     public void CadastrarLivro(Livro livro) throws ParseException {
 
-        EntityManagerFactory EntidadeDeGerenciamentoDeFabrica = Persistence.createEntityManagerFactory("Funcionalidades");
-        EntityManager GerenciadorDeEntidade = EntidadeDeGerenciamentoDeFabrica.createEntityManager();
+
 
         System.out.println("Digite o nome do livro: ");
         String titulo = entrada.nextLine();
@@ -28,9 +28,20 @@ public class CadastroDeLivros {
         String genero = entrada.nextLine();
 
         System.out.println("Digite o ISBN do livro(Apenas Números): ");
-        int isbn = entrada.nextInt();
+        Integer isbn = entrada.nextInt();
 
-        TypedQuery<Livro> livro = GerenciadorDeEntidade.createQuery()
+        EntityManagerFactory EntidadeDeGerenciamentoDeFabrica = Persistence.createEntityManagerFactory("Funcionalidades");
+        EntityManager GerenciadorDeEntidade = EntidadeDeGerenciamentoDeFabrica.createEntityManager();
+
+        TypedQuery<Livro> query = GerenciadorDeEntidade.createQuery("SELECT livro FROM Livro livro WHERE livro.isbn = :isbn", Livro.class);
+        query.setParameter("isbn", isbn);
+
+        List<Livro> livrosExistentes = query.getResultList();
+
+        if (!livrosExistentes.isEmpty()) {
+            System.out.println("Já tem um livro com esse ISBN cadastrado no banco de dados");
+            return;
+        }
 
         System.out.println("Digite a quantidade de livros que deseja cadastrar: ");
         int quantidade = entrada.nextInt();

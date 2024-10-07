@@ -24,6 +24,7 @@ public class CadastroDeAutores {
 
         TypedQuery<Autor> query = GerenciadorDeEntidades.createQuery("SELECT autor FROM Autor autor WHERE autor.nome = :nome", Autor.class);
         query.setParameter("nome", nome);
+
         List<Autor> autoresExistentes = query.getResultList();
 
         if (!autoresExistentes.isEmpty()) {
