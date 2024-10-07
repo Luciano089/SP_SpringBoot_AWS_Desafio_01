@@ -3,6 +3,8 @@ import Funcionalidades.CadastroDeAutores;
 import Funcionalidades.CadastroDeLivros;
 import Funcionalidades.ExibirMenu;
 import Funcionalidades.CadastroDeMembros;
+import Funcionalidades.EmprestimoDeLivros;
+import Funcionalidades.MostrarLivrosDisponiveis;
 
 import java.text.ParseException;
 import java.util.Scanner;
@@ -25,10 +27,14 @@ public class Main {
                 CadastroDeAutores cadastroDeAutores = new CadastroDeAutores();
                 cadastroDeAutores.CadastrarAutor(new Autor());
                 break;
-            case 3: CadastroDeMembros cadastroDeMembros = new CadastroDeMembros();
+            case 3:
+                CadastroDeMembros cadastroDeMembros = new CadastroDeMembros();
                 cadastroDeMembros.cadastrarMembro(new Membro());
                 break;
             case 4:
+                EmprestimoDeLivros emprestimoDeLivros = new EmprestimoDeLivros();
+                emprestimoDeLivros.realizarEmprestimo(new Emprestimo());
+                break;
         }
 
     }

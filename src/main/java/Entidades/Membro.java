@@ -4,6 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import Entidades.Emprestimo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Date;
 
@@ -16,6 +22,9 @@ public class Membro extends Pessoa {
     private String telefone;
     private String email;
     private Date dataAssociacao;
+
+    @OneToMany(mappedBy = "membro")
+    private List<Emprestimo> emprestimos = new ArrayList<>();
 
     public Membro(String nome, String endereco, String telefone, String email, Date dataAssociacao) {
         super(nome);

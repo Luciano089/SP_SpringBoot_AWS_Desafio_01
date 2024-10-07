@@ -1,17 +1,32 @@
 package Entidades;
 
 import Enumerados.EstadoEmprestimo;
+import java.time.LocalDate;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
 public class Emprestimo {
-    String livro;
-    String dataEmprestimo;
-    Date dataDevolucao;
-    EstadoEmprestimo estado;
-    double multa;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEmprestimo;
 
-    public Emprestimo(String livro, String dataEmprestimo, Date dataDevolucao, EstadoEmprestimo estado, double multa) {
+    @ManyToOne
+    private Livro livro;
+
+    @ManyToOne
+    private Membro membro;
+
+    @Enumerated(EnumType.STRING)
+    private EstadoEmprestimo estado;
+
+    private LocalDate dataEmprestimo;
+    private Date dataDevolucao;
+    private double multa;
+
+
+    public Emprestimo(Livro livro, LocalDate dataEmprestimo, Date dataDevolucao, EstadoEmprestimo estado, double multa) {
         this.livro = livro;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
@@ -19,19 +34,27 @@ public class Emprestimo {
         this.multa = multa;
     }
 
-    public String getLivro() {
+    public Emprestimo() {
+
+    }
+
+    public void setMembro(Membro membro) {
+        this.membro = membro;
+    }
+
+    public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(String livro) {
+    public void setLivro(Livro livro) {
         this.livro = livro;
     }
 
-    public String getDataEmprestimo() {
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(String dataEmprestimo) {
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
