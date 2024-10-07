@@ -17,7 +17,6 @@ public class CadastroDeLivros {
     public void CadastrarLivro(Livro livro) throws ParseException {
 
 
-
         System.out.println("Digite o nome do livro: ");
         String titulo = entrada.nextLine();
 
