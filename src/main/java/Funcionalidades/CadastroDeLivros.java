@@ -67,7 +67,7 @@ public class CadastroDeLivros {
         GerenciadorDeEntidade.persist(livro);
         GerenciadorDeEntidade.getTransaction().commit();
 
-        System.out.println("O livro foi cadastrado com sucesso!");
+        System.out.println("O livro foi cadastrado com sucesso");
 
     }
 }
